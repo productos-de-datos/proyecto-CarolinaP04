@@ -25,7 +25,11 @@ def ingest_data():
         else:
             origen =  f'https://github.com/jdvelasq/datalabs/tree/master/datasets/precio_bolsa_nacional/xls/{year}.xlsx?raw=true'
             wget.download(origen, out = 'data_lake/landing')
+        
+        return
    
+        raise NotImplementedError("Implementar esta función")
+        
 if __name__ == "__main__":
     import doctest
     
