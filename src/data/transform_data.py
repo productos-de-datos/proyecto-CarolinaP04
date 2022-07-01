@@ -14,22 +14,22 @@ def transform_data():
     for year in range(1995, 2022):
         
         if year <= 1999:
-            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 3)
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', index_col = None, header = None)
             df = read_file.iloc[:, :25]
             df.to_csv(f'data_lake/raw/{year}.csv', index=False)
         
         elif year > 1999 and year <= 2015:
-            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 2)
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', index_col = None, header = None)
             df = read_file.iloc[:, :25]
             df.to_csv(f'data_lake/raw/{year}.csv', index=False)
         
         elif year > 2015 and year <= 2017:
-            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 2)
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', index_col = None, header = None)
             df = read_file.iloc[:, :25]
             df.to_csv(f'data_lake/raw/{year}.csv', index=False)
 
         else:
-            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx',  sheet_name = 0)
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx',  index_col = None)
             df = read_file.iloc[:, :25]
             df.to_csv(f'data_lake/raw/{year}.csv', index=False)
             
