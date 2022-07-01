@@ -21,10 +21,20 @@ def create_data_lake():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+    import os
+
+    os.mkdir('data_lake/landing')
+    os.mkdir('data_lake/raw')
+    os.mkdir('data_lake/cleansed')    
+    os.mkdir('data_lake/business/reports/figures')
+    os.mkdir('data_lake/business/features')
+    os.mkdir('data_lake/business/forecasts')
+    
+    # raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    create_data_lake()
