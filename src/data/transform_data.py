@@ -7,10 +7,35 @@ def transform_data():
     H23.
 
     """
-    raise NotImplementedError("Implementar esta función")
+    # raise NotImplementedError("Implementar esta función")
 
+    import pandas as pd
+
+    for year in range(1995, 2022):
+        
+        if year <= 1999:
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 3)
+            df = read_file.iloc[:, :25]
+            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
+        
+        elif year > 1999 and year <= 2015:
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 2)
+            df = read_file.iloc[:, :25]
+            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
+        
+        elif year > 2015 and year <= 2017:
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx', sheet_name = 0, header = 2)
+            df = read_file.iloc[:, :25]
+            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
+
+        else:
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx',  sheet_name = 0)
+            df = read_file.iloc[:, :25]
+            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
+            
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    transform_data()
