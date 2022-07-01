@@ -20,10 +20,10 @@ def ingest_data():
     for year in range(1995, 2022):
         
         if year == 2016 or year == 2017:
-            origen = f'https://github.com/jdvelasq/datalabs/tree/master/datasets/precio_bolsa_nacional/xls/{year}.xls?raw=true'
+            origen = f'https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/{year}.xls?raw=true'
             wget.download(origen, out = 'data_lake/landing')
         else:
-            origen =  f'https://github.com/jdvelasq/datalabs/tree/master/datasets/precio_bolsa_nacional/xls/{year}.xlsx?raw=true'
+            origen =  f'https://github.com/jdvelasq/datalabs/blob/master/datasets/precio_bolsa_nacional/xls/{year}.xlsx?raw=true'
             wget.download(origen, out = 'data_lake/landing')
         
         
