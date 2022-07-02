@@ -7,10 +7,27 @@ def make_daily_prices_plot():
     El archivo se debe salvar en formato PNG en data_lake/business/reports/figures/daily_prices.png.
 
     """
-    raise NotImplementedError("Implementar esta función")
+    # raise NotImplementedError("Implementar esta función")
 
+    import pandas as pd
+    import matplotlib.pyplot as plt
+
+    precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
+    precios_diarios['Fecha'] = pd.to_datetime(precios_diarios["Fecha"])
+
+    x = precios_diarios['Fecha']
+    y = precios_diarios['precio']
+
+    plt.figure(figsize=(12, 8)) 
+    plt.plot(x, y, label='Promedio Diario') 
+    plt.title('Precio Promedio Diario') 
+    plt.xlabel('Fecha') 
+    plt.ylabel('Precio') 
+    plt.savefig("data_lake/business/reports/figures/daily_prices.png") 
 
 if __name__ == "__main__":
     import doctest
-
+    
     doctest.testmod()
+    make_daily_prices_plot()
+
