@@ -9,26 +9,39 @@ def transform_data():
     """
     # raise NotImplementedError("Implementar esta función")
 
+    import openpyxl
     import pandas as pd
 
-    for year in range(1995, 2022):
+    for year in range (1995,2022):
         
-        if  year in range (1995,2016):
-            
-            read_file = pd.read_excel('data_lake/landing/{}.xlsx'.format(year), header = 3)
-            df = read_file.iloc[:, :25] 
-            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
-        
+        if year in range (1995,2016):
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx',index_col=None)
+            df = read_file.dropna(how = "any")
+            df = df.iloc[1:,:25]
+            df.columns = ["Fecha","H00","H01","H02","H03",
+            "H04","H05","H06","H07","H08","H09","H10","H11","H12","H13",
+            "H14","H15","H16","H17","H18","H19","H20","H21","H22","H23"]
+            df["Fecha"] = pd.to_datetime(df["Fecha"], format="%Y/%m/%d")
+            df.to_csv(f'data_lake/raw/{year}.csv', index_label= False, index = False) 
+
         elif year in range (2018,2022):
-            read_file = pd.read_excel('data_lake/landing/{}.xlsx'.format(year), header = 2)
-            df = read_file.iloc[:, :25]
-            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
-        
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xlsx',index_col=None, header = None)
+            df = read_file.iloc[1:,:25]
+            df.columns = ["Fecha","H00","H01","H02","H03",
+            "H04","H05","H06","H07","H08","H09","H10","H11","H12","H13",
+            "H14","H15","H16","H17","H18","H19","H20","H21","H22","H23"]
+            df["Fecha"] = pd.to_datetime(df["Fecha"], format="%Y/%m/%d")
+            df.to_csv(f'data_lake/raw/{year}.csv', index_label= False, index = False)  
+
         elif year == 2016  or year == 2017:
-            read_file = pd.read_excel('data_lake/landing/{}.xls'.format(year), header = 2)
-            df = read_file.iloc[:, :25]
-            df.to_csv(f'data_lake/raw/{year}.csv', index=False)
-          
+            read_file = pd.read_excel(f'data_lake/landing/{year}.xls',index_col=None,header = None)
+            df = read_file.dropna(how = "any")
+            df = df.iloc[1:,:25]
+            df.columns = ["Fecha","H00","H01","H02","H03",
+            "H04","H05","H06","H07","H08","H09","H10","H11","H12","H13",
+            "H14","H15","H16","H17","H18","H19","H20","H21","H22","H23"]
+            df["Fecha"] = pd.to_datetime(df["Fecha"], format="%Y/%m/%d")
+            df.to_csv(f'data_lake/raw/{year}.csv', index_label= False, index = False)    
 
 if __name__ == "__main__":
     import doctest
