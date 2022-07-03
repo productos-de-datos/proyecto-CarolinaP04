@@ -14,12 +14,14 @@ def compute_daily_prices():
     """
     # raise NotImplementedError("Implementar esta función")
 
+    def compute_daily_prices():
+
     import pandas as pd
 
-    precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
-    precios_horarios = precios_horarios[['Fecha', 'precio']]
+    precios_diarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
+    precios_diarios = precios_diarios[['Fecha', 'precio']]
     
-    precios_diarios = precios_horarios.groupby(["Fecha"])["precio"].mean() 
+    precios_diarios.groupby(["Fecha"])["precio"].mean() 
     precios_diarios.to_csv('data_lake/business/precios-diarios.csv', index=False) 
 
 if __name__ == "__main__":
