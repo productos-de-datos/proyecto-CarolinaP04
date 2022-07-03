@@ -14,14 +14,21 @@ def make_features():
     """
     # raise NotImplementedError("Implementar esta función")
 
-    import shutil
+    import pandas as pd
+    import numpy as np
+    
+    precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
+    precios_diarios['Fecha'] = pd.to_datetime(precios_diarios['Fecha'], format='%Y-%m-%d')
+    precios_diarios.sort_values(by = 'Fecha', inplace= True)
+    precios_diarios['log_precio'] = np.log(precios_diarios['precio'])
+    precios_diarios['precio_lag'] = precios_diarios.precio.shift(30)
+    precios_diarios['precio_lag2'] = np.log(precios_diarios['precio_lag'])
 
-    shutil.copy('data_lake/business/precios-diarios.csv',
-                'data_lake/business/features/precios_diarios.csv')
+    precios_diarios.to_csv('data_lake/business/features/precios-diarios.csv', index=None)
 
+    
 if __name__ == "__main__":
     import doctest
-
+    
     doctest.testmod()
     make_features()
-    
