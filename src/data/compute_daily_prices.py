@@ -14,8 +14,6 @@ def compute_daily_prices():
     """
     # raise NotImplementedError("Implementar esta función")
 
-    def compute_daily_prices():
-
     import pandas as pd
 
     precios_diarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
