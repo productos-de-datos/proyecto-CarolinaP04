@@ -18,7 +18,7 @@ def make_daily_prices_plot():
     x = precios_diarios['Fecha']
     y = precios_diarios['precio']
 
-    plt.figure(figsize=(12, 8)) 
+    plt.figure(figsize=(14, 4)) 
     plt.plot(x, y, label='Promedio Diario') 
     plt.title('Precio Promedio Diario') 
     plt.xlabel('Fecha') 
