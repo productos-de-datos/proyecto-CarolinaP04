@@ -16,7 +16,7 @@ def make_monthly_prices_plot():
     x = precios_mensuales['Fecha']
     y = precios_mensuales['precio']
 
-    plt.figure(figsize=(12, 8)) 
+    plt.figure(figsize=(10, 4)) 
     plt.plot(x, y, label='Promedio Mensual') 
     plt.title('Precio Promedio Mensual') 
     plt.xlabel('Fecha') 
