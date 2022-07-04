@@ -13,7 +13,7 @@ def make_forecasts():
 
     """
     # raise NotImplementedError("Implementar esta función")
-    
+
     import pandas as pd
     from sklearn.metrics import r2_score
     import pickle
@@ -45,3 +45,4 @@ if __name__ == "__main__":
 
     doctest.testmod()
     make_forecasts()
+
