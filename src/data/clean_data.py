@@ -29,18 +29,15 @@ def clean_data():
     df2["hora"] = pd.to_numeric(df2["hora"])
     df2.to_csv('data_lake/cleansed/precios-horarios.csv',index=False)
 
-# Tests para tipo de dato y cantidad de registros equivalentes
+# Tests para verificar creacion de archivo y numero de columnas
 def test_file():
     import os
     assert os.path.isfile('data_lake/cleansed/precios-horarios.csv') is True
 
-def test_data_type():
-    df = clean_data()
-    assert df ["precio"].dtype == "float64"
-
-def test_count_register():
-    df = clean_data()
-    assert df["Fecha"].count() == df["hora"].count()
+def test_column_number():
+    import pandas as pd
+    precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
+    assert 3 == len(precios_horarios.columns)
  
 if __name__ == "__main__":
     import doctest
