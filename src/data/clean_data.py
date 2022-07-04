@@ -31,15 +31,16 @@ def clean_data():
 
 # Tests para tipo de dato y cantidad de registros equivalentes
 def test_file():
+    import os
     assert os.path.isfile('data_lake/cleansed/precios-horarios.csv') is True
 
 def test_data_type():
     df = clean_data()
-    assert df ["Fecha"].dtype == "datetime64[ns]"
+    assert df ["precio"].dtype == "float64"
 
 def test_count_register():
     df = clean_data()
-    assert df ["Fecha"].count() == df ["precio"].count()
+    assert df["Fecha"].count() == df["hora"].count()
  
 if __name__ == "__main__":
     import doctest
