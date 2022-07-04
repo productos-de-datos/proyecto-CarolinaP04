@@ -25,7 +25,7 @@ def make_features():
     precios_diarios['precio_lag20'] = precios_diarios['precio'].shift(20)
     precios_diarios['precio_lag30'] = precios_diarios['precio'].shift(30)
 
-    precios_diarios.to_csv('data_lake/business/features/precios-diarios.csv', index=None)
+    precios_diarios.to_csv('data_lake/business/features/precios-diarios.csv', index=False)
 
     
 if __name__ == "__main__":
