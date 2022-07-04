@@ -18,12 +18,10 @@ def compute_monthly_prices():
 
     precios_horarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
     precios_horarios = precios_horarios[['Fecha', 'precio']]
-    precios_horarios['mes'] = precios_horarios['Fecha'].str[:7] + '-01'
-    
+    precios_horarios['mes'] = precios_horarios['Fecha'].str[:7] + '-01'  
     precios_mensuales = precios_horarios.groupby('mes', as_index = False).mean()
     precios_mensuales.columns = ['Fecha', 'precio']
     precios_mensuales.to_csv('data_lake/business/precios-mensuales.csv', index=False)
-
 
 if __name__ == "__main__":
     import doctest

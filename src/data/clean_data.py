@@ -28,7 +28,6 @@ def clean_data():
     df2["hora"] = pd.to_numeric(df2["hora"])
     df2.to_csv('data_lake/cleansed/precios-horarios.csv',index=False)
  
-
 if __name__ == "__main__":
     import doctest
 
