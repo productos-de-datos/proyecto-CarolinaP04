@@ -15,7 +15,6 @@ def make_features():
     # raise NotImplementedError("Implementar esta función")
 
     import pandas as pd
-    import numpy as np
     
     precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
     precios_diarios['Fecha'] = pd.to_datetime(precios_diarios['Fecha'], format='%Y-%m-%d')
