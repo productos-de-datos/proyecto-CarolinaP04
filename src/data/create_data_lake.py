@@ -1,3 +1,7 @@
+'''
+create_data_lake(): crear el directorio del proyecto, 
+en donde se alojan todas las carpetas y archivos que contienen informacion.
+'''
 def create_data_lake():
     """Cree el data lake con sus capas.
 
@@ -35,10 +39,8 @@ def create_data_lake():
     
     # raise NotImplementedError("Implementar esta función")
 
-
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
     create_data_lake()
-    

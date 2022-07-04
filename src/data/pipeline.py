@@ -1,3 +1,8 @@
+'''
+pipeline(): ejecutar secuencialmente todas las funciones previamente, 
+considerando la dependencia entre ellas.
+'''
+
 """
 Construya un pipeline de Luigi que:
 

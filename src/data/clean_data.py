@@ -1,4 +1,7 @@
-''' clean_data(): crear un archivo unico (ejm:.csv) mediante un DataFrame'''
+''' 
+clean_data(): crear un archivo unico (ejm:.csv), a partir de una lista de archivos, indicando las columnas que debe contener 
+el archivo creado. 
+'''
 
 def clean_data():
     """Realice la limpieza y transformación de los archivos CSV.

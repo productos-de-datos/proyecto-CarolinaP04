@@ -1,3 +1,7 @@
+'''
+compute_monthly_prices(): promediar los precios mensuales agrupando el archivo por mes
+y calculado la media mediante pandas.
+'''
 def compute_monthly_prices():
     """Compute los precios promedios mensuales.
 

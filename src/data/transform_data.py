@@ -1,3 +1,8 @@
+'''
+transform_data(): transformar los archivos en formato xls o xlsx a formato csv, 
+considerando la fecha y horas contenidas en los archivos.
+'''
+
 def transform_data():
     """Transforme los archivos xls a csv.
 

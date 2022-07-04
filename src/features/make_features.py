@@ -1,3 +1,7 @@
+'''
+make_features(): crear las características que serán utilizadas en el modelo de pronóstico.
+'''
+
 def make_features():
     """Prepara datos para pronóstico.
 

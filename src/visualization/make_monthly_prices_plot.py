@@ -1,3 +1,8 @@
+'''
+make_monthly_prices_plot(): crear un grafico de líneas (.png) para mostrar los promedios de los precios mensuales.
+Estableciendo las características personalizadas (ejm: tamaño, encabezado, eje x, eje y).
+'''
+
 def make_monthly_prices_plot(): 
     """Crea un grafico de lines que representa los precios promedios mensuales. 
  

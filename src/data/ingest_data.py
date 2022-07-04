@@ -1,3 +1,9 @@
+'''
+ingest_data(): extraer desde una fuente los archivos que seran utilizados 
+y llevarlos a una carpeta del directorio. 
+(ejm: origen = repositorio de github, tipo de archivo descargado = xls o xlsx)
+'''
+
 """
 Módulo de ingestión de datos.
 -------------------------------------------------------------------------------
@@ -32,5 +38,4 @@ if __name__ == "__main__":
     
     doctest.testmod()
     ingest_data()
- 
  

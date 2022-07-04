@@ -1,3 +1,7 @@
+'''
+make_forecasts(): pronosticar el modelo de regresión lineal construido 
+haciendo uso del archivo generado (.pkl)
+'''
 def make_forecasts():
     """Construya los pronosticos con el modelo entrenado final.
 
@@ -45,4 +49,3 @@ if __name__ == "__main__":
 
     doctest.testmod()
     make_forecasts()
-

@@ -1,3 +1,8 @@
+'''
+make_daily_prices_plot(): crear un grafico de líneas (.png) para mostrar los promedios de los precios diarios.
+Estableciendo las características personalizadas (ejm: tamaño, encabezado, eje x, eje y).
+'''
+
 def make_daily_prices_plot():
     """Crea un grafico de lines que representa los precios promedios diarios.
 
@@ -30,4 +35,3 @@ if __name__ == "__main__":
     
     doctest.testmod()
     make_daily_prices_plot()
-

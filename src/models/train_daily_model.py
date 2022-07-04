@@ -1,3 +1,8 @@
+'''
+train_daily_model(): teniendo en cuenta las caracteristicas establecidas previamente (make_features) 
+se genera un modelo de regresión lineal con ayuda de la libreria sklearn.
+'''
+
 def train_daily_model():
     """Entrena el modelo de pronóstico de precios diarios.
 
@@ -41,4 +46,3 @@ if __name__ == "__main__":
     
     doctest.testmod()
     train_daily_model()
-

@@ -1,3 +1,7 @@
+'''
+compute_daily_prices(): promediar los precios diarios agrupando el archivo 
+y calculado la media mediante pandas.
+'''
 def compute_daily_prices():
     """Compute los precios promedios diarios.
 
