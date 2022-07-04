@@ -1,3 +1,7 @@
+'''
+make_features(): crear las características que serán utilizadas en el modelo de pronóstico.
+'''
+
 def make_features():
     """Prepara datos para pronóstico.
 
@@ -12,10 +16,23 @@ def make_features():
     analizar y determinar las variables explicativas del modelo.
 
     """
-    raise NotImplementedError("Implementar esta función")
+    # raise NotImplementedError("Implementar esta función")
 
+    import pandas as pd
+    
+    precios_diarios = pd.read_csv('data_lake/business/precios-diarios.csv')
+    precios_diarios['Fecha'] = pd.to_datetime(precios_diarios['Fecha'], format='%Y-%m-%d')
+    precios_diarios.sort_values(by = 'Fecha', inplace= True)
+    precios_diarios['precio_lag'] = precios_diarios['precio'].shift(1)
+    precios_diarios['precio_lag10'] = precios_diarios['precio'].shift(10)
+    precios_diarios['precio_lag20'] = precios_diarios['precio'].shift(20)
+    precios_diarios['precio_lag30'] = precios_diarios['precio'].shift(30)
 
+    precios_diarios.to_csv('data_lake/business/features/precios-diarios.csv', index=False)
+
+    
 if __name__ == "__main__":
     import doctest
-
+    
     doctest.testmod()
+    make_features()

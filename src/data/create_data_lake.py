@@ -1,3 +1,7 @@
+'''
+create_data_lake(): crear el directorio del proyecto, 
+en donde se alojan todas las carpetas y archivos que contienen informacion.
+'''
 def create_data_lake():
     """Cree el data lake con sus capas.
 
@@ -21,10 +25,22 @@ def create_data_lake():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+    import os
 
+    os.mkdir('data_lake')
+    os.mkdir('data_lake/landing')
+    os.mkdir('data_lake/raw')
+    os.mkdir('data_lake/cleansed')
+    os.mkdir('data_lake/business')
+    os.mkdir('data_lake/business/reports')
+    os.mkdir('data_lake/business/reports/figures')
+    os.mkdir('data_lake/business/features')
+    os.mkdir('data_lake/business/forecasts')
+    
+    # raise NotImplementedError("Implementar esta función")
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    create_data_lake()

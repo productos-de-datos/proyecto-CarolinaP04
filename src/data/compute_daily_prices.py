@@ -1,3 +1,7 @@
+'''
+compute_daily_prices(): promediar los precios diarios agrupando el archivo 
+y calculado la media mediante pandas.
+'''
 def compute_daily_prices():
     """Compute los precios promedios diarios.
 
@@ -12,10 +16,17 @@ def compute_daily_prices():
 
 
     """
-    raise NotImplementedError("Implementar esta función")
+    # raise NotImplementedError("Implementar esta función")
 
+    import pandas as pd
+
+    precios_diarios = pd.read_csv('data_lake/cleansed/precios-horarios.csv')
+    precios_diarios = precios_diarios[['Fecha', 'precio']]  
+    precios_diarios.groupby(["Fecha"])["precio"].mean() 
+    precios_diarios.to_csv('data_lake/business/precios-diarios.csv', index=False) 
 
 if __name__ == "__main__":
-    import doctest
-
+    import doctest   
     doctest.testmod()
+    compute_daily_prices()
+    
