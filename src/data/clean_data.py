@@ -28,6 +28,18 @@ def clean_data():
     df2["hora"] = df2["hora"].replace({'H':''}, regex=True)
     df2["hora"] = pd.to_numeric(df2["hora"])
     df2.to_csv('data_lake/cleansed/precios-horarios.csv',index=False)
+
+# Tests para tipo de dato y cantidad de registros equivalentes
+def test_file():
+    assert os.path.isfile('data_lake/cleansed/precios-horarios.csv') is True
+
+def test_data_type():
+    df = clean_data()
+    assert df ["Fecha"].dtype == "datetime64[ns]"
+
+def test_count_register():
+    df = clean_data()
+    assert df ["Fecha"].count() == df ["precio"].count()
  
 if __name__ == "__main__":
     import doctest
